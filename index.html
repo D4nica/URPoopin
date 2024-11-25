@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>UR Poopin'</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load bathroom data from localStorage
+        const bathrooms = JSON.parse(localStorage.getItem("bathrooms") || "[]");
+
+        // Function to generate the HTML for a bathroom
+        function generateBathroomHTML(bathroom) {
+          const bathroomBox = document.createElement("div");
+          bathroomBox.classList.add("bathroom-box");
+
+          // Bathroom Name and Gender
+          const nameContainer = document.createElement("div");
+          nameContainer.classList.add("bathroom-name-container");
+
+          const nameElem = document.createElement("h2");
+          nameElem.classList.add("bathroom-name");
+          nameElem.textContent = bathroom.name;
+
+          const genderElem = document.createElement("h2");
+          genderElem.classList.add("bathroom-gender");
+          genderElem.textContent = bathroom.gender;
+
+          nameContainer.appendChild(nameElem);
+          nameContainer.appendChild(genderElem);
+          bathroomBox.appendChild(nameContainer);
+
+          // Bathroom Rating (Stars)
+          const ratingContainer = document.createElement("div");
+          ratingContainer.classList.add("bathroom-rating");
+
+          // Add filled stars based on rating
+          for (let i = 0; i < 5; i++) {
+            const star = document.createElement("span");
+            star.classList.add(
+              "fa",
+              i < bathroom.rating ? "fa-star checked" : "fa-star"
+            );
+            ratingContainer.appendChild(star);
+          }
+
+          // Favorite heart
+          const heartIcon = document.createElement("i");
+          heartIcon.classList.add(
+            "heart",
+            bathroom.favorited ? "fa-heart" : "fa-heart-o"
+          );
+
+          ratingContainer.appendChild(heartIcon);
+          bathroomBox.appendChild(ratingContainer);
+
+          return bathroomBox;
+        }
+
+        // Get the container where the favorites will be displayed
+        const container = document.querySelector(".favorites-container");
+        container.innerHTML = ""; // Clear previous content
+
+        // Filter bathrooms for only favorited ones and display them
+        bathrooms
+          .filter((b) => b.favorited)
+          .forEach((bathroom) => {
+            container.appendChild(generateBathroomHTML(bathroom));
+          });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hearts = document.querySelectorAll(".heart");
+
+        hearts.forEach((heart) => {
+          heart.addEventListener("click", function () {
+            this.classList.toggle("fa-heart");
+            this.classList.toggle("fa-heart-o");
+
+            if (this.classList.contains("fa-heart-o")) {
+              const bathroomBox = this.closest(".bathroom-box");
+              bathroomBox.remove();
+            }
+          });
+        });
+      });
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("review-box");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- this is the start of content -->
+
+    <div class="header">
+      <div class="headi">
+        <a href="index.html"
+          ><img
+            src="https://cdn.glitch.global/653b67c6-e6ce-468f-8e86-545a89c06582/home.png?v=1731743838432"
+            alt="search"
+            class="icon"
+        /></a>
+      </div>
+      <div class="headi">
+        <a href="searchpage.html"
+          ><img
+            src="https://cdn.glitch.global/653b67c6-e6ce-468f-8e86-545a89c06582/search.png?v=1731743958831"
+            alt="search"
+            class="icon"
+        /></a>
+      </div>
+      <div class="headt"><h1>UR POOPIN'</h1></div>
+      <div class="headi">
+        <a href="login.html"
+          ><img
+            src="https://cdn.glitch.global/653b67c6-e6ce-468f-8e86-545a89c06582/user.png?v=1731744235096"
+            alt="account"
+            class="icon"
+        /></a>
+      </div>
+    </div>
+
+    <div>
+      <h2>UR POTTY SPOTS</h2>
+
+      <div class="bathroom-box">
+        <a href="bathroompage.html?id=1">
+          <span class="bathroom-link">
+            <div class="bathroom-name-container">
+              <h2 class="bathroom-name">Douglass, Floor 4</h2>
+              <h2 class="bathroom-gender">Unisex</h2>
+            </div>
+          </span>
+        </a>
+        <div class="bathroom-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <i class="heart fa fa-heart"></i>
+        </div>
+      </div>
+
+      <div class="bathroom-box">
+        <a href="bathroompage.html?id=7">
+          <span class="bathroom-link">
+            <div class="bathroom-name-container">
+              <h2 class="bathroom-name">Douglass, Floor 2</h2>
+              <h2 class="bathroom-gender">Unisex</h2>
+            </div>
+          </span>
+        </a>
+        <div class="bathroom-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <i class="heart fa fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <div id="map">
+      <h2>LOOKIN' FOR POOPIN'?</h2>
+      <img
+        src="https://cdn.glitch.global/653b67c6-e6ce-468f-8e86-545a89c06582/URmaps_RC.jpg?v=1731741444459"
+        alt="Map of University of Rochester"
+        class="image-shadow"
+      />
+    </div>
+
+    <div id="petition">
+      <h2>ADD A BATHROOM</h2>
+      <div id="petition-box">
+        <div class="pet-item">
+          <form id="pet">
+            <input
+              type="text"
+              id="building"
+              name="building"
+              placeholder="Building"
+            /><br />
+            <input
+              type="text"
+              id="floor"
+              name="floor"
+              placeholder="Floor"
+            /><br />
+
+            <div class="wrapper">
+              <button type="submit">
+                <span>Submit</span>
+                <div class="success">
+                  <svg
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1"
+                    viewBox="0 0 29.756 29.756"
+                    style="enable-background: new 0 0 29.756 29.756"
+                    xml:space="preserve"
+                  >
+                    <path
+                      d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173 c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752 c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="pet-item">
+          <h4>Submit a bathroom you don't see on the website!</h4>
+        </div>
+      </div>
+    </div>
+
+    <hr class="thin-divider" />
+
+    <div id="review">
+      <h2 style="font-size: 20px; text-align: center">
+        REVIEWS FROM THE RESTROOM
+      </h2>
+      <div class="review-box">
+        <p>
+          This app has changed my life! Now I'm not spending so much time
+          looking for bathrooms! Anytime I'm lost, I just open this site. Thank
+          you so much UR POOPIN'
+        </p>
+        <div class="review-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </div>
+        <h2 class="review-name">Danica Kim (@AvidBathroomUser)</h2>
+      </div>
+      <div class="review-box">
+        <p>My go-to app for when I have to go! I once ran out of toilet paper and had to call public safety, but ever since using this app, I’ve never had that problem again!</p>
+        <div class="review-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </div>
+        <h2 class="review-name">Hailey (@NeedTP)</h2>
+      </div>
+      <div class="review-box">
+        <p>
+          i used to be scared to poop on campus. ur poopin has helped take away some of that fear...
+        </p>
+        <div class="review-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </div>
+        <h2 class="review-name">Lucy (@impoopin)</h2>
+      </div>
+      <div class="review-box">
+        <p>
+          This app is wonderful! I will never struggle to find a bathroom again!
+        </p>
+        <div class="review-rating">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </div>
+        <h2 class="review-name">Adrian (@FormerLostBathroomer)</h2>
+      </div>
+
+      <div class="center-arrow">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2024 UR Poopin'. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>

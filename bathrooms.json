@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "building": "Douglass",
+    "floor": 4,
+    "description": "",
+    "gender": "Unisex",
+    "ada": true,
+    "family": true,
+    "sanitary": false,
+    "stars": 3,
+    "reviews": [
+      {
+        "username": "john_doe",
+        "text": "Sometimes the counters can get really wet, so don't lean on them when you wash your hands..."
+      },
+      {
+        "username": "jane_smith",
+        "text": "Great place to wash up, but can get crowded during peak hours."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "building": "Douglass",
+    "floor": 4,
+    "description": "",
+    "gender": "Unisex",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 2
+  },
+  {
+    "id": 3,
+    "building": "Douglass",
+    "floor": 3,
+    "description": "",
+    "gender": "Male",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 4
+  },
+  {
+    "id": 4,
+    "building": "Douglass",
+    "floor": 3,
+    "description": "",
+    "gender": "Female",
+    "ada": true,
+    "family": false,
+    "sanitary": true,
+    "stars": 3
+  },
+  {
+    "id": 5,
+    "building": "Wilson Commons",
+    "floor": 2,
+    "description": "on the lower level of floor 2, across from the help desk",
+    "gender": "Female",
+    "ada": true,
+    "family": false,
+    "sanitary": true,
+    "stars": 4
+  },
+  {
+    "id": 6,
+    "building": "Wilson Commons",
+    "floor": 2,
+    "description": "on the upper level of floor 2, to the left of the upwards staircase",
+    "gender": "Male",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 3
+  },
+  {
+    "id": 7,
+    "building": "Douglass",
+    "floor": 2,
+    "description": "",
+    "gender": "Unisex",
+    "ada": true,
+    "family": true,
+    "sanitary": false,
+    "stars": 3
+  },
+  {
+    "id": 8,
+    "building": "Rush Rhees",
+    "floor": "G",
+    "description": "bathroom closest to the entrance of ITS",
+    "gender": "Male",
+    "ada": false,
+    "family": false,
+    "sanitary": false,
+    "stars": 1
+  },
+  {
+    "id": 9,
+    "building": "Rush Rhees",
+    "floor": "G",
+    "description": "bathroom closest to the entrance of ITS",
+    "gender": "Female",
+    "ada": false,
+    "family": false,
+    "sanitary": true,
+    "stars": 2
+  },
+  {
+    "id": 10,
+    "building": "Rush Rhees",
+    "floor": "G",
+    "description": "bathroom outside Arts & Music Library",
+    "gender": "Male",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 3
+  },
+  {
+    "id": 11,
+    "building": "Rush Rhees",
+    "floor": "G",
+    "description": "bathroom outside Arts & Music Library",
+    "gender": "Female",
+    "ada": true,
+    "family": false,
+    "sanitary": true,
+    "stars": 2
+  },
+  {
+    "id": 12,
+    "building": "Douglass",
+    "floor": "1",
+    "description": "*only inside Douglass Dining hall",
+    "gender": "Female",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 2
+  },
+  {
+    "id": 13,
+    "building": "Douglass",
+    "floor": "1",
+    "description": "*only inside Douglass Dining hall",
+    "gender": "Male",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 3
+  },
+  {
+    "id": 14,
+    "building": "Douglass",
+    "floor": "2",
+    "description": "",
+    "gender": "Female",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 4
+  },
+  {
+    "id": 15,
+    "building": "Douglass",
+    "floor": "2",
+    "description": "",
+    "gender": "Male",
+    "ada": true,
+    "family": false,
+    "sanitary": false,
+    "stars": 4
+  }
+]
